@@ -15,7 +15,6 @@ class Student extends Model
         'email',
         'phone_number',
         'section_id',
-        'picture',
     ];
 
     public function section()

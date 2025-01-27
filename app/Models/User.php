@@ -13,8 +13,8 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'password',
         'phone_number',
-        'picture',
         'role',
     ];
 
@@ -22,4 +22,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(AttendanceRecord::class, 'taken_by_id');
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->role === 'super-admin';
+    }
+
 }

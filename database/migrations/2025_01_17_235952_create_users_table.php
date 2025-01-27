@@ -13,9 +13,9 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('phone_number')->nullable();
-            $table->string('picture')->nullable();
-            $table->enum('role', ['admin', 'super-admin', 'student']);
+            $table->enum('role', ['admin', 'super-admin']);
             $table->timestamps();
         });
     }

@@ -15,7 +15,6 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->unsignedBigInteger('section_id');
-            $table->string('picture')->nullable();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->timestamps();
         });
