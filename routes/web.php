@@ -10,6 +10,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\AttendanceRecordController;
 
+
 // Public Routes (Guest Access)
 Route::get('/dashboard', function () {
     return view('dashboard');  // A generic dashboard view
@@ -63,3 +64,10 @@ Route::middleware(['auth', 'role:super-admin'])->group(function () {
     // User Management Routes (CRUD)
     Route::resource('users', UserController::class);  // User management (CRUD)
 });
+
+use App\Http\Controllers\CourseController; 
+
+// for Course resource controller
+Route::resource('courses', CourseController::class);
+?>
+ 
