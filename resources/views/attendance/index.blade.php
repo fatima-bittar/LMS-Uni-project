@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('grades.sections.index' ,$grade->id)}}" class="btn btn-light mb-3" style="position: absolute; top: 10px; left: 10px; text-decoration: none;">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
     <h2>Attendance for Section: {{ $section->name }} (Grade: {{ $grade->name }})</h2>
 
     <!-- Display the current date -->

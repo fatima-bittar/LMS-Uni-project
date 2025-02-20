@@ -10,12 +10,12 @@ class SuperAdminController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('superadmin.dashboard', compact('users'));
+        return view('super-admin.dashboard', compact('users'));
     }
 
     public function create()
     {
-        return view('superadmin.create-user');
+        return view('super-admin.create-user');
     }
 
     public function store(Request $request)
@@ -36,6 +36,6 @@ class SuperAdminController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('superadmin.dashboard')->with('success', 'User created successfully.');
+        return redirect()->route('super-admin.dashboard')->with('success', 'User created successfully.');
     }
 }

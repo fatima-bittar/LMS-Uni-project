@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('grades.sections.students.index' ,[$grade->id, $section->id])}}" class="btn btn-light mb-3" style="position: absolute; top: 10px; left: 10px; text-decoration: none;">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
     <h1>Add Student to {{ $section->name }} ({{ $grade->name }})</h1>
 
     @if ($errors->any())

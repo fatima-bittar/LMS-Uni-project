@@ -10,10 +10,10 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\AttendanceRecordController;
 
-// Public Routes (Guest Access)
-Route::get('/dashboard', function () {
-    return view('dashboard');  // A generic dashboard view
-});
+// // Public Routes (Guest Access)
+// Route::get('/dashboard', function () {
+//     return view('dashboard');  // A generic dashboard view
+// });
 
 
 // Authentication Routes
@@ -25,7 +25,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Routes (Admin & Super Admin)
 Route::middleware(['auth', 'role:admin,super-admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    // Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     // Students CRUD Routes
     Route::resource('grades.sections.students', StudentController::class)->except(['show']);
@@ -58,7 +58,7 @@ Route::middleware(['auth', 'role:admin,super-admin'])->group(function () {
 
 // Super Admin Routes (Super Admin only)
 Route::middleware(['auth', 'role:super-admin'])->group(function () {
-    Route::get('/super-admin/dashboard', [SuperAdminController::class, 'index'])->name('superadmin.dashboard');
+    Route::get('/super-admin/dashboard', [SuperAdminController::class, 'index'])->name('super-admin.dashboard');
 
     // User Management Routes (CRUD)
     Route::resource('users', UserController::class);  // User management (CRUD)

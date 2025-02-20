@@ -39,7 +39,7 @@ class AuthController extends Controller
             'password'   => Hash::make($request->password),
         ]);
 
-        auth()->login($user);
+        return redirect()->route('login');
 
 
     } catch (\Exception $e) {
@@ -59,9 +59,9 @@ public function login(Request $request)
         $user = Auth::user();
 
         if ($user->role === 'super-admin') {
-            return redirect()->route('superadmin.dashboard');
+            return redirect()->route('super-admin.dashboard');
         } elseif ($user->role === 'admin') {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('grades.index');
         } 
     }
 
