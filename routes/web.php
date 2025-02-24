@@ -63,3 +63,10 @@ Route::middleware(['auth', 'role:super-admin'])->group(function () {
     // User Management Routes (CRUD)
     Route::resource('users', UserController::class);  // User management (CRUD)
 });
+
+use App\Http\Controllers\CourseController; 
+
+// for Course resource controller
+Route::resource('courses', CourseController::class);
+?>
+ 
